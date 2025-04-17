@@ -2,17 +2,28 @@
 public class Notas {
     
     //Atributos Encapsulados
+    private String Nombre;
     private double Nota1, Nota2, Nota3, Promedio;
     
     //Constructor 
 
-    public Notas(double Nota1, double Nota2, double Nota3) {
+    public Notas(String Nombre, double Nota1, double Nota2, double Nota3, double Promedio) {
+        this.Nombre = Nombre;
         this.Nota1 = Nota1;
         this.Nota2 = Nota2;
         this.Nota3 = Nota3;
+        this.Promedio = Promedio;
     }
     
     //Metodos Get y Set
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
 
     public double getNota1() {
         return Nota1;
@@ -45,6 +56,7 @@ public class Notas {
     public void setPromedio(double Promedio) {
         this.Promedio = Promedio;
     }
+
     
     //Metodos Adicionales
     public double Promedio(){
@@ -52,9 +64,20 @@ public class Notas {
         return (Nota1 + Nota2 + Nota3)/3;
     }
     
+    public String SituacionAcademica(){
+        if(Promedio() >= 12){
+            return "Aprobo";
+        }
+        else{
+            return "Desaprobo";
+        }
+    }
     public String MostrarInformacion(){
         
-        return "Promedio: " + Promedio();
+        return "Nombre: " + Nombre +
+                "\nPromedio: " + Promedio() + 
+                "Situacion academica: " + SituacionAcademica();
+           
     }
     
 }
