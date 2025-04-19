@@ -16,8 +16,7 @@ public class MantenimientoMedico {
     
     //METODO PARA AÑADIR ELEMENTOS AL ARRAYLIST
     //add() es para añadir los elementos
-    public void aregarMedico(Medico medico){
-        
+    public void agregarMedico(Medico medico){
         listaMedico.add(medico);
     }
     
@@ -25,5 +24,12 @@ public class MantenimientoMedico {
     public ArrayList<Medico> obtenerMedico(){
         return listaMedico;
     }
-    
+    public Medico buscarMedicoPorNombre(String nombre) {
+    for (Medico m : listaMedico) {
+        if (m.getNombre().equalsIgnoreCase(nombre)) {
+            return m;
+        }
+    }
+    return null; 
+    }
 }
